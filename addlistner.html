@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="startbtn">start</button>
+    <button id="stopbtn">stop</button>
+    <script>
+      const startbtn = document.getElementById("startbtn");
+      const stopbtn = document.getElementById("stopbtn");
+      function random(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function changeBackground() {
+        const r = random(255);
+        const g = random(255);
+        const b = random(255);
+        document.body.style.background = "rgb(" + r + "," + g + "," + b + ")";
+      }
+      function start() {
+        document.addEventListener("mousemove", changeBackground);
+      }
+      function stop() {
+        document.removeEventListener("mousemove", changeBackground);
+      }
+
+      startbtn.addEventListener("click", start);
+      stopbtn.addEventListener("click", stop);
+    </script>
+  </body>
+</html>
